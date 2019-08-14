@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Raccoons</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        *{
+            font-family: "Raccoon";
+        }
+        th, tr{
+            text-align: center;
+            font-size: x-large;
+        }
+        h1{
+            text-align:center;
+        }
+        button{
+            margin-left: 500px;
+            font-size: x-large;
+            width: 150px;
+            display: inline-block
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Raccoons</h1>
+    <br>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Color</th>
+                <th scope="col">Type</th>
+                <th scope="col">Age</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <% for (var raccoon of raccoons) { %>
+                <td><%= raccoon.name %></td>
+                <td><%= raccoon.color %></td>
+                <td><%= raccoon.type %></td>
+                <td><%= raccoon.age %></td>
+                <td>
+                <a href= "/view/<%= raccoon._id %>" method="GET">View</a>
+                <a href="/edit/<%= raccoon._id %>" method="GET">Edit</a>
+                <a href="/delete/<%= raccoon._id %>" method="POST">Delete</a>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </tbody>
+    <br>
+    <a href="/create"><button type="button" class="btn btn-dark">Add a Raccoon</button></a>
+    </div>
+</body>
+</html>

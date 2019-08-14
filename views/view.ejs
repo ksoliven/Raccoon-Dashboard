@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>View a Raccoon</title>
+    <style>
+     * {
+            font-family: "Raccoon";
+        }
+
+        body {
+            align-content: center;
+            font-size: x-large;
+
+        }
+
+        button {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>View a Raccoon</h1>
+    <% for (raccoon of raccoons) { %>
+    <p>Name:&nbsp; <%= raccoon.name %></p>
+    <br>
+    <p>Color:&nbsp; <%= raccoon.color %></p>
+    <br>
+    <p>Type:&nbsp; <%= raccoon.type %></p>
+    <br>
+    <p>Age:&nbsp; <%= raccoon.age %></p>
+    <br>
+    <p>
+    <form action="/edit/<%= raccoon._id %>" method="GET"><button class="btn btn-dark" type="submit">Edit</button></form>
+    <form action="/delete/<%= raccoon._id %>" method="POST"><button class="btn btn-dark" type="submit">Delete</button></form>
+    </p>
+    <% } %>
+</div>
+</body>
+</html>
